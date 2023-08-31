@@ -4,24 +4,24 @@
 <mapper namespace="com.nambu.api.mapper.uhj.UHJ01Mapper">
 
 	<!-- SELECT -->
-    <select id="getStudentList" resultType="com.nambu.api.entity.uhj.StHakJeokM">
+    <select id="getStudentList" resultType="com.nambu.api.entity.uhj.UHJ01Entity">
         SELECT * FROM ST_HAKJEOK_M_TEST 
         WHERE HAKBEON LIKE CONCAT('%', #{ST_HAKJEOK_M.hakbeon}, '%')
     </select>
 
 	<!-- INSERT -->
-    <insert id="insertStudent" parameterType="com.nambu.api.entity.uhj.StHakJeokM">
+    <insert id="insertStudent" parameterType="com.nambu.api.entity.uhj.UHJ01Entity">
         INSERT INTO ST_HAKJEOK_M_TEST (hakbeon, h_name, iphak_juya) VALUES (#{ST_HAKJEOK_M.hakbeon}, #{ST_HAKJEOK_M.h_name}, #{ST_HAKJEOK_M.iphak_juya}) 
     </insert>
 
 	<!-- UPDATE -->
-    <update id="updateStudent" parameterType="com.nambu.api.entity.uhj.StHakJeokM">
+    <update id="updateStudent" parameterType="com.nambu.api.entity.uhj.UHJ01Entity">
         UPDATE ST_HAKJEOK_M_TEST SET iphak_juya = #{ST_HAKJEOK_M.iphak_juya} 
         WHERE hakbeon = #{ST_HAKJEOK_M.hakbeon}
     </update>
 
 	<!-- DELETE -->
-    <delete id="deleteStudent" parameterType="com.nambu.api.entity.uhj.StHakJeokM">
+    <delete id="deleteStudent" parameterType="com.nambu.api.entity.uhj.UHJ01Entity">
         DELETE FROM ST_HAKJEOK_M_TEST 
         WHERE HAKBEON = #{ST_HAKJEOK_M.hakbeon}
     </delete>

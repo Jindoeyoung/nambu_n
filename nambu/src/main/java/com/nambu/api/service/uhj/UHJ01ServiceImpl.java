@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.nambu.api.entity.uhj.StHakJeokM;
+import com.nambu.api.entity.uhj.UHJ01Entity;
 import com.nambu.api.mapper.uhj.UHJ01Mapper;
 import com.nambu.api.security.AuthCheck;
 
@@ -36,7 +36,7 @@ public class UHJ01ServiceImpl implements UHJ01Service {
     //< SELECT
     //============================================================
 	@Override
-	public String getStudentList(@Param("ST_HAKJEOK_M") StHakJeokM hakjeokm) throws Exception {
+	public String getStudentList(@Param("ST_HAKJEOK_M") UHJ01Entity hakjeokm) throws Exception {
 	    //============================================================
 	    //< api-key check
 	    //============================================================
@@ -44,7 +44,7 @@ public class UHJ01ServiceImpl implements UHJ01Service {
 			return authcheck.getMetaAuthErrGenerator(hakjeokm.getApikey());
 		}
 
-		List<StHakJeokM> datas = uhj01Mapper.getStudentList(hakjeokm);
+		List<UHJ01Entity> datas = uhj01Mapper.getStudentList(hakjeokm);
 
         //============================================================
         //< json 포맷 데이터 생성
@@ -58,7 +58,7 @@ public class UHJ01ServiceImpl implements UHJ01Service {
 		dataResult.addProperty("result", Success);
 
 		if (datas.size() > 0) {
-			for (StHakJeokM item : datas) {
+			for (UHJ01Entity item : datas) {
 
 				JsonObject Obj1 = new JsonObject();
 				JsonObject Obj2 = new JsonObject();
@@ -90,7 +90,7 @@ public class UHJ01ServiceImpl implements UHJ01Service {
     //< INSERT
     //============================================================
 	@Override
-	public int insertStudent(@Param("ST_HAKJEOK_M") StHakJeokM hakjeokm) throws Exception {
+	public int insertStudent(@Param("ST_HAKJEOK_M") UHJ01Entity hakjeokm) throws Exception {
 		try {
 			if (!authcheck.getMetaAuthErrGenerator(hakjeokm.getApikey()).equals("{}")) {
 			    //============================================================
@@ -111,7 +111,7 @@ public class UHJ01ServiceImpl implements UHJ01Service {
     //< UPDATE
     //============================================================	
 	@Override
-	public int updateStudent(@Param("ST_HAKJEOK_M") StHakJeokM hakjeokm) {
+	public int updateStudent(@Param("ST_HAKJEOK_M") UHJ01Entity hakjeokm) {
 		try {
 			if (!authcheck.getMetaAuthErrGenerator(hakjeokm.getApikey()).equals("{}")) {
 			    //============================================================
@@ -132,7 +132,7 @@ public class UHJ01ServiceImpl implements UHJ01Service {
     //< DELETE
     //============================================================	
 	@Override
-	public int deleteStudent(@Param("ST_HAKJEOK_M") StHakJeokM hakjeokm) {
+	public int deleteStudent(@Param("ST_HAKJEOK_M") UHJ01Entity hakjeokm) {
 		try {
 			if (!authcheck.getMetaAuthErrGenerator(hakjeokm.getApikey()).equals("{}")) {
 			    //============================================================

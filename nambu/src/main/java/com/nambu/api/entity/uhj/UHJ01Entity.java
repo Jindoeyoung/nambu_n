@@ -3,7 +3,8 @@ package com.nambu.api.entity.uhj;
 import lombok.Data;
 
 @Data
-public class StHakJeokM {
+public class UHJ01Entity {
+	/* StHakJeok M*/
 	private String apikey;
 	private String hakbeon;
 	private String reg_dt;
@@ -23,6 +24,7 @@ public class StHakJeokM {
 	private String byeondong_ilja;
 	private String gwajeong_gb;
 	private String juya_gb;
+	private String juya_gb_nm;
 	private String hakgwa;
 	private String jeongong;
 	private String haknyeon;

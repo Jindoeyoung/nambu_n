@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import com.nambu.api.entity.uhj.StHakJeokM;
+import com.nambu.api.entity.uhj.UHJ01Entity;
 
 /**
  * <p>Mapper</p>
@@ -16,28 +16,28 @@ public interface UHJ01Mapper {
     //============================================================
     //< SELECT
     //============================================================	
-	List<StHakJeokM> getStudentList(
-		@Param("ST_HAKJEOK_M") StHakJeokM hakjeokm
+	List<UHJ01Entity> getStudentList(
+		@Param("ST_HAKJEOK_M") UHJ01Entity hakjeokm
 	);
 
     //============================================================
     //< INSERT
     //============================================================	
 	int insertStudent(
-		@Param("ST_HAKJEOK_M") StHakJeokM hakjeokm
+		@Param("ST_HAKJEOK_M") UHJ01Entity hakjeokm
 	);
 
     //============================================================
     //< UPDATE
     //============================================================	
 	int updateStudent(
-		@Param("ST_HAKJEOK_M") StHakJeokM hakjeokm
+		@Param("ST_HAKJEOK_M") UHJ01Entity hakjeokm
 	);
 
     //============================================================
     //< DELETE
     //============================================================	
 	int deleteStudent(
-		@Param("ST_HAKJEOK_M") StHakJeokM hakjeokm
+		@Param("ST_HAKJEOK_M") UHJ01Entity hakjeokm
 	);
 }

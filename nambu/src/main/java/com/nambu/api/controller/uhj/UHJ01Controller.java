@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nambu.api.entity.uhj.StHakJeokM;
+import com.nambu.api.entity.uhj.UHJ01Entity;
 import com.nambu.api.service.uhj.UHJ01Service;
 
 import lombok.RequiredArgsConstructor;
@@ -26,36 +26,36 @@ public class UHJ01Controller {
     //============================================================
     //< SELECT
     //============================================================
-	@PostMapping("")
+	@PostMapping("/getStudent")
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
-	public String getUser(@RequestBody StHakJeokM _hakjeokm) throws Exception {
+	public String getUser(@RequestBody UHJ01Entity _hakjeokm) throws Exception {
 		return uhj01Service.getStudentList(_hakjeokm);
 	}
 
     //============================================================
     //< INSERT
     //============================================================
-	@PostMapping("/insert")
+	@PostMapping("/insertStudent")
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
-	public int insertUser(@RequestBody StHakJeokM _hakjeokm) throws Exception {
+	public int insertUser(@RequestBody UHJ01Entity _hakjeokm) throws Exception {
 		return uhj01Service.insertStudent(_hakjeokm);
 	}
 
     //============================================================
     //< UPDATE
     //============================================================
-	@PutMapping("")
+	@PutMapping("/updateStudent")
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
-	public int updatetUser(@RequestBody StHakJeokM _hakjeokm) throws Exception {
+	public int updatetUser(@RequestBody UHJ01Entity _hakjeokm) throws Exception {
 		return uhj01Service.updateStudent(_hakjeokm);
 	}
 
     //============================================================
     //< DELETE
     //============================================================
-	@DeleteMapping("")
+	@DeleteMapping("/deleteStudent")
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
-	public int deletetUser(@RequestBody StHakJeokM _hakjeokm) throws Exception {
+	public int deletetUser(@RequestBody UHJ01Entity _hakjeokm) throws Exception {
 		return uhj01Service.deleteStudent(_hakjeokm);
 	}
 }
