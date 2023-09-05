@@ -1,6 +1,7 @@
 package com.nambu.api.util;
 
 import com.google.gson.JsonObject;
+import com.nambu.api.security.SignVerifier;
 
 /**
  * <p>Util</p>
@@ -9,7 +10,30 @@ import com.google.gson.JsonObject;
  * </ul> 
  */
 public class Utils {
-	public JsonObject getMetaErrGenerator(Integer responseCode, String type) throws Exception {
+	/**
+	 * <p>api-key 인증</p>
+	 * @param apikey 클라이언트로 부터 받은 apikey
+	 * @return Json 
+	 */	
+	public String getMetaAuthErrGenerator(String apikey) throws Exception {
+		SignVerifier verifier = new SignVerifier();
+		JsonObject result = new JsonObject();
+	    //============================================================
+	    //< api-key 인증 처리
+	    //============================================================
+	    if (!verifier.verifySignature(apikey)) {
+	        result = getMetaErrGenerator(10000);
+	        return result.toString();
+	    }
+	    return result.toString();
+	}	
+	
+	/**
+	 * <p>Error Json Return</p>
+	 * @param responseCode Error code
+	 * @return Json 
+	 */	
+	public JsonObject getMetaErrGenerator(Integer responseCode) throws Exception {
 
 		JsonObject dataResult = new JsonObject();
 		String desc = "";

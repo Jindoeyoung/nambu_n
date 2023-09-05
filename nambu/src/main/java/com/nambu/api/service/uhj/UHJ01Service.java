@@ -1,5 +1,7 @@
 package com.nambu.api.service.uhj;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 import com.nambu.api.entity.uhj.UHJ01Entity;
@@ -8,24 +10,33 @@ import com.nambu.api.entity.uhj.UHJ01Entity;
  * <p>Service</p>
  */
 public interface UHJ01Service {
-	
     //============================================================
-    //< SELECT
+    //< SELECT (List)
     //============================================================	
-	public String getStudentList(@Param("ST_HAKJEOK_M") UHJ01Entity hakjeokm) throws Exception;
+	public String getStudentList(@Param("ST_HAKJEOK_M") UHJ01Entity pUhj01Entity) throws Exception;
 
+    //============================================================
+    //< SELECT (Map)
+    //============================================================	
+	public String getStudentInfo(@Param("ST_HAKJEOK_M") UHJ01Entity pUhj01Entity) throws Exception;	
+	
     //============================================================
     //< INSERT
     //============================================================
-	public int insertStudent(@Param("ST_HAKJEOK_M") UHJ01Entity hakjeokm) throws Exception;
+	public String insertStudent(@Param("ST_HAKJEOK_M") UHJ01Entity pUhj01Entity) throws Exception;
 
     //============================================================
     //< UPDATE
     //============================================================	
-	public int updateStudent(@Param("ST_HAKJEOK_M") UHJ01Entity hakjeokm) throws Exception;
+	public String updateStudent(@Param("ST_HAKJEOK_M") UHJ01Entity pUhj01Entity) throws Exception;	
 
     //============================================================
     //< DELETE
     //============================================================	
-	public int deleteStudent(@Param("ST_HAKJEOK_M") UHJ01Entity hakjeokm) throws Exception;
+	public String deleteStudent(@Param("ST_HAKJEOK_M") UHJ01Entity pUhj01Entity) throws Exception;
+	
+    //============================================================
+    //< SAVE
+    //============================================================
+	public String saveStudent(@Param("ST_HAKJEOK_M") List<UHJ01Entity> pUhj01Entity) throws Exception;	
 }

@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '2.7.15'
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+	id "org.sonarqube" version "3.5.0.2730"
 }
 
 group = 'com.nambu'
@@ -33,13 +34,26 @@ dependencies {
 	implementation 'commons-codec:commons-codec:1.10'
 	implementation 'org.apache.commons:commons-text:1.7'
 	implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.6'
-	
-	testImplementation 'io.projectreactor:reactor-test'
+
     implementation group: 'com.google.guava', name: 'guava', version: '28.1-jre'
     implementation group: 'org.msgpack', name: 'jackson-dataformat-msgpack', version: '0.8.18'
-    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'	
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
+    
+	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+	implementation 'io.springfox:springfox-swagger-ui:3.0.0'    	
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "nambu_univ" 
+        property "sonar.host.url", "http://210.123.228.102:7081" 
+        property "sonar.login", "sqp_dbafb7abbf81b37e6653c7676bcb2c25de6f9b45" 
+        property "sonar.java.binaries", "${buildDir}/classes"
+        property "sonar.sourceEncoding", "UTF-8"
+        property "sonar.sources", "src/main/java"
+    }
 }
